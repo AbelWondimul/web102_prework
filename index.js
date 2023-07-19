@@ -29,7 +29,7 @@ const gamesContainer = document.getElementById("games-container");
 function addGamesToPage(games) {
 
     // loop over each item in the data
-    for(const i = 0; i < games.length; i++) {
+    for(let i = 0; i < games.length; i++) {
 
         const game = games[i];
 
@@ -39,7 +39,7 @@ function addGamesToPage(games) {
 
 
         // add the class game-card to the list
-        gameCard.className.add("game-card");
+        gameCard.classList.add("game-card");
 
 
         // set the inner HTML using a template literal to display some info 
