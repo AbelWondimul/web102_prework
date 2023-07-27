@@ -80,3 +80,14 @@ button {
     margin: 1%;
     border-radius: 7px;
 }
+#unfunded-btn:hover, #funded-btn:hover,#all-btn:hover {
+    box-shadow: 5px 5px 10px 2px violet;
+    background-color: #131231;
+    color:#FFFFFF
+    
+}
+#unfunded-btn:active, #funded-btn:active, #all-btn:active {
+    background-color: #503d97;
+    color:aliceblue
+    
+}
