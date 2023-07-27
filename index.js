@@ -82,7 +82,7 @@ contributionsCard.innerHTML = `${totalContributionsCard.toLocaleString("en-US")}
 // grab the amount raised card, then use reduce() to find the total amount raised
 const raisedCard = document.getElementById("total-raised");
 const totalRaised = GAMES_JSON.reduce((acc, curr) => {
-    return acc + curr.pledged; // Access the pledged property of each game object
+    return acc + curr.pledged; 
   }, 0);
 
 // set inner HTML using template literal
@@ -155,11 +155,22 @@ const descriptionContainer = document.getElementById("description-container");
 
 // use filter or reduce to count the number of unfunded games
 
+let unfundedGamesNum = GAMES_JSON.reduce((acc, curr) => {
+    if (curr.goal > curr.pledged){
+    acc++;
+} 
+return acc;}, 0);
+
+
 
 // create a string that explains the number of unfunded games using the ternary operator
+const displayStr = `A total of ${totalRaised ? totalRaised.toLocaleString("en-US"):"$100,000"} has been raised for 11 games. Currently, ${unfundedGamesNum? unfundedGamesNum : 1} game remains unfunded. we need your help to fund these amazing games!`
 
 
 // create a new DOM element containing the template string and append it to the description container
+const templateString = document.createElement('p');
+templateString.innerHTML = displayStr;
+descriptionContainer.appendChild(templateString);
 
 /************************************************************************************
  * Challenge 7: Select & display the top 2 games
